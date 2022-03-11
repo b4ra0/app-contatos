@@ -24,7 +24,7 @@ class ListaContatos extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(builder: (context) => FormularioContato()),
-          );
+          ).then((novoContato) => debugPrint(novoContato.toString()));
         },
         child: Icon(Icons.add),
       ),

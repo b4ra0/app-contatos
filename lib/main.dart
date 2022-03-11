@@ -1,3 +1,5 @@
+import 'package:contatos/database/app_database.dart';
+import 'package:contatos/model/contact.dart';
 import 'package:contatos/screens/contacts_list.dart';
 import 'package:contatos/screens/dashboard.dart';
 import 'package:flutter/material.dart';
@@ -14,4 +16,7 @@ void main() {
       ),
     ),
   );
+  save(Contato(0,'Lucas', 100)).then((id){
+    findAll().then((contatos) => debugPrint(contatos.toString()));
+  });
 }
