@@ -1,28 +1,17 @@
+import 'package:contatos/screens/contacts_list.dart';
+import 'package:contatos/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      home: MyApp(),
+      home: Dashboard(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: Colors.green,
+          secondary: Colors.yellow,
+        ),
+      ),
     ),
   );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-      ),
-      body: Column(
-        children: [
-
-        ],
-      ),
-    );
-  }
 }
