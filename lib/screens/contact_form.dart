@@ -1,3 +1,4 @@
+import 'package:contatos/database/app_database.dart';
 import 'package:contatos/model/contact.dart';
 import 'package:flutter/material.dart';
 
@@ -40,8 +41,10 @@ class _FormularioContatoState extends State<FormularioContato> {
               onPressed: () {
                 final String nome = _nomeController.text;
                 final int numero = int.parse(_numeroController.text);
-                final Contato novoContato = Contato(0, nome,numero);
-                Navigator.pop(context, novoContato);
+                final Contato novoContato = Contato(0, nome, numero);
+                save(novoContato).then(
+                  (id) => Navigator.pop(context),
+                );
               },
               child: Text("Adicionar"),
             ),

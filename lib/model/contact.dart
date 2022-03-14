@@ -10,4 +10,3 @@ class Contato{
     return 'Contato{id: $id, nome: $nome, numeroConta: $numeroConta}';
   }
 }
-
