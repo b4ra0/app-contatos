@@ -1,4 +1,4 @@
-import 'package:contatos/database/app_database.dart';
+import 'package:contatos/database/dao/contact_dao.dart';
 import 'package:contatos/model/contact.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,7 @@ class FormularioContato extends StatefulWidget {
 class _FormularioContatoState extends State<FormularioContato> {
   final TextEditingController _nomeController = TextEditingController();
   final TextEditingController _numeroController = TextEditingController();
+  final ContatoDao _dao = ContatoDao();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class _FormularioContatoState extends State<FormularioContato> {
                 final String nome = _nomeController.text;
                 final int numero = int.parse(_numeroController.text);
                 final Contato novoContato = Contato(0, nome, numero);
-                save(novoContato).then(
+                _dao.save(novoContato).then(
                   (id) => Navigator.pop(context),
                 );
               },
